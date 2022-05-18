@@ -1,8 +1,19 @@
 import express from "express";
-import  {getToDos}  from "../controllers/toDoControllers.js";
+import  {getTODOS,addTODO,editTODO,deleteTODO}  from "../controllers/toDoControllers.js";
 
 const router = express.Router();
 
-router.get("/",getToDos)
+//recuperer tous les TODOS
+router.get("/",getTODOS)
+
+//ajouter un TODO
+router.post("/",addTODO)
+
+//Modifier TODO
+router.put("/:id",editTODO)
+
+//Supprimer TODO
+router.delete("/:id",deleteTODO)
+
 
 export default router;

@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const Shema = mongoose.Schema
+const Schema = mongoose.Schema
 
 const toDoSchema = new Schema({
     task: {

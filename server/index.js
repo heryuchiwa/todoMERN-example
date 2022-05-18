@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000
 app.use(cors());
 app.use(express.json())
 
-app.use("/todo",toDoRoutes);
+app.use("/todos",toDoRoutes);
 
 mongoose.connect(DATABASE_URI)
     .then(app.listen(PORT, () => console.log(`server running on ${PORT}`)))
