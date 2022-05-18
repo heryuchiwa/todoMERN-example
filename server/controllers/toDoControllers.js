@@ -20,10 +20,24 @@ export const addTODO = async (req,res, next) =>{
     }
 }
 
-export const deleteTODO = (req,res,next) =>{
+export const deleteTODO = async (req,res,next) =>{
+    const id = req.params.id;
 
+    try {
+        await toDOModel.findByIdAndDelete(id)
+        return res.status(200).json({message:"Todo removed"})
+    } catch (error) {
+        return res.status(500).json({message: "Error while deleting new todo"})
+    }
 }
 
-export const editTODO = (req,res,next) => {
-
+export const editTODO = async (req,res,next) => {
+    const id = req.params.id;
+    try {
+        const todo = await toDOModel.findById(id);
+        todo.task = !todo.task;
+        todo.save();
+    } catch (error) {
+        
+    }
 }
